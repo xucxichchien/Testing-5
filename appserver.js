@@ -22,13 +22,13 @@ router.use( (loixayra, yeucau, trave, ketiep) => {
 
 // ------------------- Routing
 router.get( "/" , (yeucau, trave) => {
-    data = fs.readFileSync("html/main.html");
+    data = fs.readFileSync("./html/main.html");
     pageContent = data.toString();
     trave.send(pageContent);
 });
 
 router.get( "/home" , (yeucau, trave) => {
-    data = fs.readFileSync("html/home.html");
+    data = fs.readFileSync("./html/home.html");
     pageContent = data.toString();
     trave.send(pageContent);
 });
@@ -43,10 +43,10 @@ appServer.use(bodyParser.json());
 // ------------------------- Add Router / Controller
 appServer.use("/", router);
 
-const ProductRouter = require("./controller/productController").ProductRouter;
+const ProductRouter = require("./Controller/productController").ProductRouter;
 appServer.use("/products", ProductRouter);
 
-const LoginRouter = require("./controller/loginController").LoginRouter;
+const LoginRouter = require("./Controller/loginController").LoginRouter;
 appServer.use("/login", LoginRouter);
 
 // ----------- RUN / Launching !!! 
